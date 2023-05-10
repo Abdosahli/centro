@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNotesTable extends Migration
+class CreateYaersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateNotesTable extends Migration
      */
     public function up()
     {
-        Schema::create('notes', function (Blueprint $table) {
-            $table->id();
-            $table->date('date');
-            $table->float('note');
-            $table->unsignedBigInteger('student_id');
+        Schema::create('yaers', function (Blueprint $table) {
+            $table->id('id_year');
+            $table->string('name_year',20);
+            $table->string('Libelleyear', 30);
+            $table->integer('coedyear');
             $table->timestamps();
-            $table->foreign('student_id')->references('student_id')->on('students')->onDelete('cascade');
         });
     }
 
@@ -30,6 +29,6 @@ class CreateNotesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('notes');
+        Schema::dropIfExists('yaers');
     }
 }

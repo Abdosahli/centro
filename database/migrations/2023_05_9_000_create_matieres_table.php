@@ -14,8 +14,14 @@ class CreateMatieresTable extends Migration
     public function up()
     {
         Schema::create('matieres', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_mat');
+            $table->string('LibelleMat', 30);
+            $table->integer('CoedfMat');
+            $table->unsignedBigInteger('id_year');
             $table->timestamps();
+            $table->foreign('id_year')->references('id_year')->on('yaers');
+       
+           
         });
     }
 
